@@ -1,0 +1,5 @@
+*.swp
+Makefile
+src/*.o
+src/*.zip
+src/*.app

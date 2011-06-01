@@ -1,0 +1,6 @@
+*.swp
+nbproject/*
+Makefile
+*.o
+*.zip
+*.app

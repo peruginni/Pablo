@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="icons/add">icons/Add.tiff</file>
+        <file alias="icons/remove">icons/Remove.tiff</file>
+        <file alias="icons/canvas">icons/Canvas.tiff</file>
+        <file alias="icons/properties">icons/Properties.tiff</file>
+        <file alias="icons/layers">icons/Layers.tiff</file>
+        <file alias="icons/pablo">icons/Pablo.tiff</file>
+        <file alias="icons/info">icons/Info.tiff</file>
+        <file alias="icons/help">icons/Help.tiff</file>
+        <file alias="icons/colors">icons/Colors.tiff</file>
+        <file alias="icons/quit">icons/Quit.tiff</file>
+        <file alias="icons/toolSelect">icons/ToolSelect.tiff</file>
+        <file alias="icons/toolMove">icons/ToolMove.tiff</file>
+        <file alias="icons/toolCircle">icons/ToolCircle.tiff</file>
+        <file alias="icons/toolPath">icons/ToolPath.tiff</file>
+        <file alias="icons/toolRectangle">icons/ToolRectangle.tiff</file>
+        <file alias="icons/up">icons/Up.tiff</file>
+        <file alias="icons/down">icons/Down.tiff</file>
+    </qresource>
+</RCC>

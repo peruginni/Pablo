@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LayersPanel</class>
+ <widget class="QDockWidget" name="LayersPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>181</width>
+    <height>298</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="allowedAreas">
+   <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+  </property>
+  <property name="windowTitle">
+   <string>Layers</string>
+  </property>
+  <widget class="QWidget" name="dockWidgetContents">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>6</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>1</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QListWidget" name="layersList"/>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="controlButtons">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="controlUp">
+        <property name="text">
+         <string>Up</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/up</normaloff>:/icons/up</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="controlDown">
+        <property name="text">
+         <string>Down</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/down</normaloff>:/icons/down</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="controlButtonsSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="controlAdd">
+        <property name="text">
+         <string>Add</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="controlRemove">
+        <property name="text">
+         <string>Remove</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>controlUp</sender>
+   <signal>clicked()</signal>
+   <receiver>LayersPanel</receiver>
+   <slot>layerUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>17</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>18</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>controlDown</sender>
+   <signal>clicked()</signal>
+   <receiver>LayersPanel</receiver>
+   <slot>layerDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>controlAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>LayersPanel</receiver>
+   <slot>layerAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>controlRemove</sender>
+   <signal>clicked()</signal>
+   <receiver>LayersPanel</receiver>
+   <slot>layerRemove()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>170</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>layersList</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>LayersPanel</receiver>
+   <slot>layerSelect(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>95</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>layerUp()</slot>
+  <slot>layerDown()</slot>
+  <slot>layerAdd()</slot>
+  <slot>layerRemove()</slot>
+  <slot>layerSelect(QListWidgetItem*)</slot>
+ </slots>
+</ui>
