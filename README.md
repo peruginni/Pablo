@@ -93,3 +93,6 @@ Požadavky v zadání projektu jsou splněny všechny a funguji správně.
 Pro efektivní kreslení by bylo vhodné vylepšit správce nástrojů, hlavně budování křivek (postupným klikáním cesty).
 
 Vykreslování objektů je specifické pro každou třídu odvozenou z VectorEntity, proto abych se vyhnul dynamic_cast příkazu, použil jsem enumeraci definovanou uvnitř VectorEntity na základně které se idenfikuje odvozená třída objektu, objekt se následně přetypuje a pošle ke zpracování do odpovídající pro tento typ přetižené vykreslovací metody. Byla zde možnost implementovat vykreslování jako virtuální metodu pro každou odvozenou třídu třídy VectorEntity, avšak tomu jsem se chtěl vyhnout protože vykreslování do business vrstvy nepatří a příliš by zvýšilo závislost na prezentační vrstvě. Ideální, ale více pracné, by bylo kdyby každá třída odvozená z VectorEntity měla svůj „view“ v prezentační vrstvě který by zmíněný princip s virtuální metodu implementoval.
+
+
+
