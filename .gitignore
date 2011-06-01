@@ -1,6 +1,5 @@
 *.swp
 nbproject/*
 Makefile
-src/*.o
-src/*.zip
-src/*.app
+!bin/*
+!doc/*
