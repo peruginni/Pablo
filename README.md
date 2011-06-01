@@ -1,10 +1,13 @@
 Pablo - grafický editor
 =======================
 
-Aplikaci jsem vytvořil v rámci semestrální práce k předmětu Y36PJC (Programování v jazyce C++).
+Aplikace vznikla v rámci semestrální práce k předmětu Y36PJC (Programování v jazyce C++).
 
 ### Ke stažení ###
- * verze pro Mac
+ * [verze pro Mac](https://github.com/peruginni/Pablo/raw/master/bin/pablo.app.dmg)
+
+### Screenshot ###
+![Ukázka aplikace](https://github.com/peruginni/Pablo/raw/master/doc/screenshot.png)
 
 ### Zadání ###
 
@@ -35,6 +38,7 @@ Při změně vlastností kresleného objektu nebo jeho tvaru, či pozice v hiera
 #### Optimalizace vykreslování během úprav ####
 
 Každá úprava kreslených objektu se skládá ze tří fází
+
  * zahájení: stisknutí tlačítka myši
  * úpravy kontrolních bodů: tah myši a v závislosti na režmu ovládání případná úprava příslušných kontrolních bodů
  * ukončení: uvolnění tlačítka myši
@@ -47,6 +51,7 @@ Výběr kontrolního bodu po stisknutí myši bude realizován průchodem všech
 
 #### Návrh aplikace ####
 Všechen kód bude rozdělen do několika oblastí vyjádřených strukturou a názvy složek.
+
  * business – obchodní logika aplikace 
    * controller – správci jsou používání k manipulaci s entitami 
      * LayerController, PropertiesController, ToolController
@@ -72,14 +77,19 @@ UIC slouží k vytvoření zdrojových kódu navrženého uživatelského rozhra
 Qmake slouží jednak k vytvoření makefile souboru aplikace, ale také k přípravě pro Qt specifických součástí pro následnou kompilaci celého projektu. Zajištuje také např vyhledání resources a převod souborů uživatelského rozhrání do zdrojového kódu.
 
 Qmake se nad složkou se zdrojovými kódy používá následovně:
-	qmake -project // vytvoří pro Qt specifický projekt 
-	qmake pablo.pro // na základě Qt projektu vygeneruje makefile specifický pro platformu
-	make // klasický přikaz součásti GCC spustí sestavení aplikace
+
+<pre><code>
+$ qmake -project // vytvoří pro Qt specifický projekt 
+$ qmake pablo.pro // na základě Qt projektu vygeneruje makefile specifický pro platformu
+$ make // klasický přikaz součásti GCC spustí sestavení aplikace
+</code></pre>
 
 Vygenerovaný makefile je možné přizpůsobit. Pro potřeby požadavků semestrální práce je nutné obohatit následující řádek s proměnnou CXXFLAGS o požadované příkazy:
-	CXXFLAGS = -pipe -O2 -Wall -Wno-long-long -pedantic -D_REENTRANT $(DEFINES)
+
+> CXXFLAGS = -pipe -O2 -Wall -Wno-long-long -pedantic -D_REENTRANT $(DEFINES)
 
 Myslím, že by bylo dobré zmínit implementační záležitosti kolem třídy QObject, která je základní třídou pro většinu tříd ve frameworku Qt.
+ 
  * Třída zprovozňuje funkcionalitu Slots-Signals která je velmi podobná návrhovému vzoru Observer-Observable a umožňuje objektům mezi sebou se propojit a komunikovat
  * Neumožňuje kopírovat odvozené třídy (copyconstructor a operátor = jsou zakázány)
  * Udržuje informace o svých dětech (objektech které jsou takto explicitně nastaveny) a v případě že se rodičovský objekt začne rušit, nejprve on sám zruší všechny své potomky

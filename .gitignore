@@ -1,4 +1,5 @@
 *.swp
+nbproject/*
 Makefile
 src/*.o
 src/*.zip
