@@ -35,7 +35,7 @@ V uživatelském rozhraní při výběru vrstvy v panelu vrstev, se vlastnosti k
 
 Při změně vlastností kresleného objektu nebo jeho tvaru, či pozice v hierarchii vrstev se překreslí plátno.
 
-#### Optimalizace vykreslování během úprav ####
+#### Optimalizace vykreslování během úprav ####
 
 Každá úprava kreslených objektu se skládá ze tří fází
 
@@ -50,6 +50,9 @@ Výběr kontrolního bodu po stisknutí myši bude realizován průchodem všech
 ### Implementace ###
 
 #### Návrh aplikace ####
+
+![Diagram architektury](https://github.com/peruginni/Pablo/raw/master/doc/uml-architecture.png)
+
 Všechen kód bude rozdělen do několika oblastí vyjádřených strukturou a názvy složek.
 
  * business – obchodní logika aplikace 
@@ -78,8 +81,7 @@ Qmake slouží jednak k vytvoření makefile souboru aplikace, ale také k pří
 
 Qmake se nad složkou se zdrojovými kódy používá následovně:
 
-<pre><code>
-$ qmake -project // vytvoří pro Qt specifický projekt 
+<pre><code>$ qmake -project // vytvoří pro Qt specifický projekt 
 $ qmake pablo.pro // na základě Qt projektu vygeneruje makefile specifický pro platformu
 $ make // klasický přikaz součásti GCC spustí sestavení aplikace
 </code></pre>
